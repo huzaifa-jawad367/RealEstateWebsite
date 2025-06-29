@@ -30,13 +30,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { ChatBot } from "@/components/chatbot"
+import { GoogleMap } from "@/components/google-map"
 
 const propertyImages = [
-  "/placeholder.svg?height=600&width=800",
-  "/placeholder.svg?height=600&width=800",
-  "/placeholder.svg?height=600&width=800",
-  "/placeholder.svg?height=600&width=800",
-  "/placeholder.svg?height=600&width=800",
+  "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800",
 ]
 
 const propertyHighlights = [
@@ -51,7 +52,7 @@ const propertyHighlights = [
 const similarProperties = [
   {
     id: 2,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=300",
     title: "Luxury Apartment in DHA",
     location: "DHA Phase 2, Islamabad",
     price: "₨65,00,000",
@@ -60,7 +61,7 @@ const similarProperties = [
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=300",
     title: "Family House in Bahria Town",
     location: "Bahria Town, Rawalpindi",
     price: "₨45,00,000",
@@ -69,7 +70,7 @@ const similarProperties = [
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=300",
     title: "Cozy Studio in G-11",
     location: "G-11, Islamabad",
     price: "₨32,00,000",
@@ -81,6 +82,9 @@ const similarProperties = [
 export default function PropertyDetailPage({ params }: { params: { id: string } }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [activeTab, setActiveTab] = useState("schools")
+
+  // Property address for Google Maps
+  const propertyAddress = "Street 15, F-7/2, Islamabad, Pakistan"
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % propertyImages.length)
@@ -107,7 +111,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                 Properties
               </Link>
               <span className="mx-2">/</span>
-              <span className="text-gray-900">Modern Villa in Downtown</span>
+              <span className="text-gray-900">Modern Villa in F-7</span>
             </nav>
           </div>
         </div>
@@ -171,7 +175,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">Modern Villa in F-7</h1>
                     <div className="flex items-center text-gray-600 mb-4">
                       <MapPin className="w-5 h-5 mr-2" />
-                      <span className="text-lg">Street 15, F-7/2, Islamabad, Pakistan</span>
+                      <span className="text-lg">{propertyAddress}</span>
                     </div>
                   </div>
                   <Badge className="bg-blue-600">Featured</Badge>
@@ -206,7 +210,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                 <div className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Overview</h2>
                   <p className="text-gray-600 leading-relaxed">
-                    This stunning modern villa offers the perfect blend of luxury and comfort in the heart of downtown.
+                    This stunning modern villa offers the perfect blend of luxury and comfort in the heart of F-7.
                     Featuring an open-concept design with high ceilings, floor-to-ceiling windows, and premium finishes
                     throughout. The gourmet kitchen boasts stainless steel appliances, quartz countertops, and a large
                     island perfect for entertaining. The master suite includes a walk-in closet and spa-like bathroom
@@ -231,13 +235,18 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                   </div>
                 </div>
 
-                {/* Location */}
+                {/* Location with Google Maps */}
                 <div className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Location</h2>
 
-                  {/* Map Placeholder */}
-                  <div className="bg-gray-200 h-64 rounded-lg mb-4 flex items-center justify-center">
-                    <div className="text-gray-500">Interactive Map</div>
+                  {/* Interactive Google Map */}
+                  <div className="mb-6">
+                    <GoogleMap 
+                      address={propertyAddress}
+                      className="w-full shadow-lg"
+                      height="400px"
+                      zoom={16}
+                    />
                   </div>
 
                   {/* Location Tabs */}
@@ -346,7 +355,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                 <h3 className="text-xl font-semibold mb-4">Your Agent</h3>
                 <div className="flex items-center mb-4">
                   <Image
-                    src="/placeholder.svg?height=80&width=80"
+                    src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=80"
                     alt="Agent"
                     width={80}
                     height={80}
