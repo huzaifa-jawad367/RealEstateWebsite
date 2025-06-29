@@ -30,7 +30,7 @@ import { useLanguage } from "@/components/language-provider"
 const featuredProperties = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=400",
     titleKey: "Modern Villa in F-7",
     locationKey: "F-7, Islamabad",
     price: "₨85,00,000",
@@ -41,7 +41,7 @@ const featuredProperties = [
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=400",
     titleKey: "Luxury Apartment in DHA",
     locationKey: "DHA Phase 2, Islamabad",
     price: "₨65,00,000",
@@ -52,7 +52,7 @@ const featuredProperties = [
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=400",
     titleKey: "Family House in Bahria Town",
     locationKey: "Bahria Town, Rawalpindi",
     price: "₨45,00,000",
@@ -66,21 +66,21 @@ const featuredProperties = [
 const testimonials = [
   {
     name: "Fatima Khan",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=80",
     quote: "بہترین سروس! انہوں نے ہمیں صرف دو ہفتوں میں ہمارا خوابوں کا گھر تلاش کرنے میں مدد کی۔",
     rating: 5,
     role: "Property Buyer"
   },
   {
     name: "Ahmed Ali",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=80",
     quote: "Professional, knowledgeable, and always available. Highly recommended!",
     rating: 5,
     role: "Investor"
   },
   {
     name: "Ayesha Malik",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=80",
     quote: "Made the home buying process smooth and stress-free. Thank you!",
     rating: 5,
     role: "First-time Buyer"
@@ -113,7 +113,7 @@ export function HomeContent() {
         {/* Background with overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=1080&width=1920"
+            src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920"
             alt="Contemporary home"
             fill
             className="object-cover"
@@ -374,7 +374,7 @@ export function HomeContent() {
             <div className="relative">
               <div className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/placeholder.svg?height=500&width=600"
+                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600"
                   alt="Our team"
                   fill
                   className="object-cover"

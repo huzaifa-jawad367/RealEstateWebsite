@@ -17,7 +17,7 @@ import { ChatBot } from "@/components/chatbot"
 const properties = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=400",
     title: "Modern Villa in F-7",
     location: "F-7, Islamabad",
     price: "₨85,00,000",
@@ -31,7 +31,7 @@ const properties = [
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=400",
     title: "Luxury Apartment in DHA",
     location: "DHA Phase 2, Islamabad",
     price: "₨65,00,000",
@@ -45,7 +45,7 @@ const properties = [
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=400",
     title: "Family House in Bahria Town",
     location: "Bahria Town, Rawalpindi",
     price: "₨45,00,000",
@@ -59,7 +59,7 @@ const properties = [
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400",
     title: "Cozy Studio in G-11",
     location: "G-11, Islamabad",
     price: "₨32,00,000",
@@ -73,7 +73,7 @@ const properties = [
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=400",
     title: "Penthouse in Centaurus",
     location: "F-8, Islamabad",
     price: "₨1,20,00,000",
@@ -87,7 +87,7 @@ const properties = [
   },
   {
     id: 6,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=400",
     title: "Suburban Family Home",
     location: "PWD Housing Scheme, Islamabad",
     price: "₨38,00,000",
@@ -167,22 +167,7 @@ export default function PropertiesPage() {
                 <h3 className="text-lg font-semibold mb-6">Advanced Search</h3>
 
                 <div className="space-y-6">
-                  {/* Country */}
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Country</label>
-                    <Select>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select Country" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="usa">United States</SelectItem>
-                        <SelectItem value="canada">Canada</SelectItem>
-                        <SelectItem value="uk">United Kingdom</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* City */}
+                  {/* City - Removed Country dropdown as requested */}
                   <div>
                     <label className="block text-sm font-medium mb-2">City</label>
                     <Select>
@@ -243,37 +228,41 @@ export default function PropertiesPage() {
                     </div>
                   </div>
 
-                  {/* Price Range */}
+                  {/* Price Range - Fixed to show both thumbs */}
                   <div>
                     <label className="block text-sm font-medium mb-3">Price Range</label>
-                    <Slider
-                      value={priceRange}
-                      onValueChange={setPriceRange}
-                      max={15000000}
-                      min={0}
-                      step={10000}
-                      className="mb-2"
-                    />
-                    <div className="flex justify-between text-sm text-gray-600">
-                      <span>₨{(priceRange[0] / 100000).toFixed(0)} Lakh</span>
-                      <span>₨{(priceRange[1] / 100000).toFixed(0)} Lakh</span>
+                    <div className="px-2">
+                      <Slider
+                        value={priceRange}
+                        onValueChange={setPriceRange}
+                        max={15000000}
+                        min={0}
+                        step={100000}
+                        className="mb-4"
+                      />
+                      <div className="flex justify-between text-sm text-gray-600">
+                        <span>₨{(priceRange[0] / 100000).toFixed(0)} Lakh</span>
+                        <span>₨{(priceRange[1] / 100000).toFixed(0)} Lakh</span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Square Feet */}
+                  {/* Square Feet - Fixed to show both thumbs */}
                   <div>
                     <label className="block text-sm font-medium mb-3">Square Feet</label>
-                    <Slider
-                      value={sizeRange}
-                      onValueChange={setSizeRange}
-                      max={5000}
-                      min={500}
-                      step={100}
-                      className="mb-2"
-                    />
-                    <div className="flex justify-between text-sm text-gray-600">
-                      <span>{sizeRange[0]} sq ft</span>
-                      <span>{sizeRange[1]} sq ft</span>
+                    <div className="px-2">
+                      <Slider
+                        value={sizeRange}
+                        onValueChange={setSizeRange}
+                        max={5000}
+                        min={500}
+                        step={100}
+                        className="mb-4"
+                      />
+                      <div className="flex justify-between text-sm text-gray-600">
+                        <span>{sizeRange[0]} sq ft</span>
+                        <span>{sizeRange[1]} sq ft</span>
+                      </div>
                     </div>
                   </div>
 

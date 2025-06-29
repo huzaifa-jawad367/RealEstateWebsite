@@ -11,28 +11,28 @@ const teamMembers = [
   {
     name: "Fatima Khan",
     role: "CEO & Founder",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300",
     experience: "15+ years",
     specialization: "Luxury Properties",
   },
   {
     name: "Ahmed Ali",
     role: "Senior Agent",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300",
     experience: "12+ years",
     specialization: "Commercial Real Estate",
   },
   {
     name: "Ayesha Malik",
     role: "Property Consultant",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300",
     experience: "8+ years",
     specialization: "Residential Properties",
   },
   {
     name: "Hassan Shah",
     role: "Investment Advisor",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300",
     experience: "10+ years",
     specialization: "Property Investment",
   },
@@ -121,7 +121,7 @@ export default function AboutPage() {
               </div>
               <div className="relative">
                 <Image
-                  src="/placeholder.svg?height=500&width=600"
+                  src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600"
                   alt="Our office building"
                   width={600}
                   height={500}
@@ -243,7 +243,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA Section - Fixed button text visibility */}
         <section className="py-20 bg-blue-600 text-white">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Find Your Dream Property?</h2>
@@ -260,7 +260,7 @@ export default function AboutPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-blue-600"
+                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
               >
                 Contact Us Today
               </Button>
