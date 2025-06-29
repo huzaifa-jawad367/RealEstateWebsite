@@ -42,8 +42,8 @@ export function Navigation() {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'glass backdrop-blur-xl border-b border-white/10' 
-          : 'bg-transparent'
+          ? 'bg-white shadow-lg border-b border-gray-100' 
+          : 'bg-white shadow-md'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
@@ -52,7 +52,7 @@ export function Navigation() {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
                 <span className="text-white font-bold text-lg">R</span>
               </div>
-              <span className="text-xl font-bold text-gradient hidden sm:block">
+              <span className="text-xl font-bold text-gradient bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hidden sm:block">
                 RealEstate
               </span>
             </Link>
@@ -111,7 +111,7 @@ export function Navigation() {
                 </div>
               ) : (
                 <Button 
-                  className="btn-modern text-sm px-6 py-2 h-auto"
+                  className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-6 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                   onClick={() => setShowAuthModal(true)}
                 >
                   {t("login")}
@@ -133,7 +133,7 @@ export function Navigation() {
           {/* Mobile Navigation */}
           {isOpen && (
             <div className="lg:hidden animate-slide-up">
-              <div className="px-2 pt-2 pb-6 space-y-1 glass rounded-2xl mt-4 border border-white/10">
+              <div className="px-2 pt-2 pb-6 space-y-1 bg-white rounded-2xl mt-4 border border-gray-100 shadow-lg">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
@@ -189,7 +189,7 @@ export function Navigation() {
                 ) : (
                   <div className="px-4 py-2 border-t border-gray-100">
                     <Button 
-                      className="btn-modern w-full justify-center text-sm"
+                      className="w-full justify-center text-sm bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                       onClick={() => setShowAuthModal(true)}
                     >
                       {t("login")}
