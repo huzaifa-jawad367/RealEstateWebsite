@@ -25,12 +25,14 @@ import {
   School,
   ShoppingBag,
   Train,
+  Heart,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { ChatBot } from "@/components/chatbot"
 import { GoogleMap } from "@/components/google-map"
+import { ShareButton } from "@/components/share-button"
 
 const propertyImages = [
   "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -82,9 +84,15 @@ const similarProperties = [
 export default function PropertyDetailPage({ params }: { params: { id: string } }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [activeTab, setActiveTab] = useState("schools")
+  const [isFavorite, setIsFavorite] = useState(false)
 
-  // Property address for Google Maps
-  const propertyAddress = "Street 15, F-7/2, Islamabad, Pakistan"
+  // Property data
+  const propertyData = {
+    title: "Modern Villa in F-7",
+    location: "Street 15, F-7/2, Islamabad, Pakistan",
+    price: "₨85,00,000",
+    image: propertyImages[0],
+  }
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % propertyImages.length)
@@ -92,6 +100,10 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + propertyImages.length) % propertyImages.length)
+  }
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite)
   }
 
   return (
@@ -120,6 +132,44 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2">
+              {/* Property Header with Share and Favorite */}
+              <div className="mb-8">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h1 className="text-3xl font-bold text-gray-900 mb-2">{propertyData.title}</h1>
+                    <div className="flex items-center text-gray-600 mb-4">
+                      <MapPin className="w-5 h-5 mr-2" />
+                      <span className="text-lg">{propertyData.location}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3 ml-4">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={toggleFavorite}
+                      className={`hover:scale-110 transition-all duration-200 ${
+                        isFavorite 
+                          ? 'bg-red-50 border-red-300 text-red-600' 
+                          : 'hover:bg-gray-50'
+                      }`}
+                    >
+                      <Heart 
+                        className={`w-5 h-5 ${
+                          isFavorite ? 'fill-current' : ''
+                        }`} 
+                      />
+                    </Button>
+                    <ShareButton
+                      propertyTitle={propertyData.title}
+                      propertyPrice={propertyData.price}
+                      propertyLocation={propertyData.location}
+                      propertyImage={propertyData.image}
+                    />
+                    <Badge className="bg-blue-600">Featured</Badge>
+                  </div>
+                </div>
+              </div>
+
               {/* Image Gallery */}
               <div className="mb-8">
                 <div className="relative h-96 md:h-[500px] mb-4">
@@ -170,17 +220,6 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
 
               {/* Property Details */}
               <div className="mb-8">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h1 className="text-3xl font-bold text-gray-900 mb-2">Modern Villa in F-7</h1>
-                    <div className="flex items-center text-gray-600 mb-4">
-                      <MapPin className="w-5 h-5 mr-2" />
-                      <span className="text-lg">{propertyAddress}</span>
-                    </div>
-                  </div>
-                  <Badge className="bg-blue-600">Featured</Badge>
-                </div>
-
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                   <div className="text-center p-4 bg-gray-50 rounded-lg">
                     <div className="text-2xl font-bold text-blue-600">₨85,00,000</div>
@@ -242,7 +281,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                   {/* Interactive Google Map */}
                   <div className="mb-6">
                     <GoogleMap 
-                      address={propertyAddress}
+                      address={propertyData.location}
                       className="w-full shadow-lg"
                       height="400px"
                       zoom={16}
